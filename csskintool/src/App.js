@@ -16,21 +16,25 @@ const imageContext = require.context('./images', false, /\.(webp)$/);
 // Use the importAll function to create an array of imported image objects
 const imageArray = importAll(imageContext);
 
-
-const ImageDisplay = ({ images }) => {
+/* This Function Handles the logic for the landing page, displaying all the weapons
+  and containing the logic to link to each weapon's skin repository*/
+const WeaponDisplay = ({ images }) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {images.map((image, index) => (
+
         <img
           key={index}
-          src={image.default} // Using .default to access the imported image URL
+          src={image} // Using .default to access the imported image URL
           alt={`Image ${index + 1}`}
           style={{ width: '100px', height: '100px', margin: '5px' }}
         />
+
       ))}
     </div>
   );
 };
+
 
 const App = () => {
 
@@ -40,7 +44,7 @@ const App = () => {
       <div>
 
         <h1>CS2 SKIN TOOL</h1>
-        <ImageDisplay images={imageArray} />
+        <WeaponDisplay images={imageArray} />
 
 
 
