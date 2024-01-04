@@ -22,14 +22,14 @@ const WeaponDisplay = ({ images }) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {images.map((image, index) => (
-
-        <img
-          key={index}
-          src={image} // Using .default to access the imported image URL
-          alt={`Image ${index + 1}`}
-          style={{ width: '100px', height: '100px', margin: '5px' }}
-        />
-
+        <Link key={index} to={`/image/${index + 1}`}>
+          <img
+            src={image}
+            alt={`Image ${index + 1}`}
+            style={{ width: '200px', height: '200px', margin: '10px', cursor: 'pointer' }}
+          />
+        <div className='image-text'>test</div>
+        </Link>
       ))}
     </div>
   );
@@ -44,10 +44,9 @@ const App = () => {
       <div>
 
         <h1>CS2 SKIN TOOL</h1>
-        <WeaponDisplay images={imageArray} />
 
-
-
+        <WeaponDisplay images={imageArray}/>
+        
       </div>
       </div>
     </Router>
