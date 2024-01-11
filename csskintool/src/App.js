@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Home from './Home';
 import Weapons from './Weapons';
-import './App.css'; // Import the CSS file for styling
+import './App.css';
 
 // Function to import all images from the 'src/images' directory with the '.webp' extension
 const importAll = (r) => r.keys().map(r);
@@ -26,7 +26,8 @@ const WeaponDisplay = ({ images }) => {
           <img
             src={image}
             alt={`Image ${index + 1}`}
-            style={{ width: '200px', height: '200px', margin: '10px', cursor: 'pointer' }}
+            // 4:3 aspect ratio
+            style={{ width: '320px', height: '240px', margin: '10px', cursor: 'pointer' }}
           />
         <div className='image-text'>test</div>
         </Link>
@@ -43,10 +44,16 @@ const App = () => {
       <div className='App'>
       <div>
 
-        <h1>CS2 SKIN TOOL</h1>
+        <h1>
+        <Link to="/">CS2 SKIN TOOL</Link>
+        </h1>
 
         <WeaponDisplay images={imageArray}/>
         
+        <Routes>
+        <Route path="/" exact element={<Home/>} />
+        </Routes>
+
       </div>
       </div>
     </Router>
