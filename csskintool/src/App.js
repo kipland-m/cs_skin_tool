@@ -16,9 +16,22 @@ const imageContext = require.context('./images', false, /\.(webp)$/);
 // Use the importAll function to create an array of imported image objects
 const imageArray = importAll(imageContext);
 
+const imageNames = imageArray.map(image => {
+  // Extract the filename from the full path
+  const fileName = image.split('/').pop();
+  const parts = fileName.split('.');
+  const weaponName = parts[0];
+  return weaponName;
+});
+
+for (const [index, weaponName] of imageNames.entries()) {
+  console.log(`Weapon ${index + 1}: ${weaponName}`);
+}
+
+
 /* This Function Handles the logic for the landing page, displaying all the weapons
   and containing the logic to link to each weapon's skin repository*/
-const WeaponDisplay = ({ images }) => {
+const WeaponDisplay = ({ images, imageNames }) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {images.map((image, index) => (
@@ -51,6 +64,12 @@ const App = () => {
         <WeaponDisplay images={imageArray}/>
         
         <Routes>
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/" exact element={<Home/>} />
         <Route path="/" exact element={<Home/>} />
         </Routes>
 
