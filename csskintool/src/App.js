@@ -4,6 +4,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Home from './Home';
+import AK47 from './AK47';
 import Weapons from './Weapons';
 import './App.css';
 
@@ -24,10 +25,11 @@ const imageNames = imageArray.map(image => {
   return weaponName;
 });
 
+/*
 for (const [index, weaponName] of imageNames.entries()) {
   console.log(`Weapon ${index + 1}: ${weaponName}`);
 }
-
+*/
 
 /* This Function Handles the logic for the landing page, displaying all the weapons
   and containing the logic to link to each weapon's skin repository*/
@@ -35,14 +37,13 @@ const WeaponDisplay = ({ images, imageNames }) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {images.map((image, index) => (
-        <Link key={index} to={`/image/${index + 1}`}>
+        <Link key={index} to={`/weapon/${encodeURIComponent(imageNames[index])}`}>
           <img
             src={image}
             alt={`Image ${index + 1}`}
-            // 4:3 aspect ratio
             style={{ width: '320px', height: '240px', margin: '10px', cursor: 'pointer' }}
           />
-        <div className='image-text'>test</div>
+          <div className='image-text'>{imageNames[index]}</div>
         </Link>
       ))}
     </div>
@@ -61,11 +62,11 @@ const App = () => {
         <Link to="/">CS2 SKIN TOOL</Link>
         </h1>
 
-        <WeaponDisplay images={imageArray}/>
+        <WeaponDisplay images={imageArray} imageNames={imageNames}/>
         
         <Routes>
         <Route path="/" exact element={<Home/>} />
-        <Route path="/" exact element={<Home/>} />
+        <Route path="/weapon/ak-47" exact element={<AK47/>} />
         <Route path="/" exact element={<Home/>} />
         <Route path="/" exact element={<Home/>} />
         <Route path="/" exact element={<Home/>} />
