@@ -4,7 +4,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Home from './Home';
-import AK47 from './AK47';
+import AK47 from './components/AK47';
+
+
+
+
+
 import Weapons from './Weapons';
 import './App.css';
 
@@ -67,11 +72,8 @@ const App = () => {
         <Routes>
         <Route path="/" exact element={<Home/>} />
         <Route path="/weapon/ak-47" exact element={<AK47/>} />
-        <Route path="/" exact element={<Home/>} />
-        <Route path="/" exact element={<Home/>} />
-        <Route path="/" exact element={<Home/>} />
-        <Route path="/" exact element={<Home/>} />
-        <Route path="/" exact element={<Home/>} />
+        
+    
         </Routes>
 
       </div>
