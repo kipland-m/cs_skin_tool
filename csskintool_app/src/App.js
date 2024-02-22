@@ -5,8 +5,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import './App.css';
 
-import Weapons from './Weapons';
-
 import AK47 from './components/AK47';
 import AUG from './components/AUG';
 import AWP from './components/AWP';
@@ -40,7 +38,7 @@ import SSG08 from './components/SSG08';
 import TEC9 from './components/TEC9';
 import UMP45 from './components/UMP45';
 import USPS from './components/USPS';
-import XM1014 from './components/XM014';
+import XM1014 from './components/XM1014';
 
 // Function to import all images from the 'src/images' directory with the '.webp' extension
 const importAll = (r) => r.keys().map(r);
