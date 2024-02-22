@@ -2,16 +2,45 @@
 // Michael Ashby & Kip Melton
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
 import Home from './Home';
-import AK47 from './components/AK47';
-
-
-
-
+import './App.css';
 
 import Weapons from './Weapons';
-import './App.css';
+
+import AK47 from './components/AK47';
+import AUG from './components/AUG';
+import AWP from './components/AWP';
+import CZ75 from './components/CZ75';
+import DESERTEAGLE from './components/DESERTEAGLE';
+import DUALBERETTAS from './components/DUALBERETTAS';
+import FAMAS from './components/FAMAS';
+import FIVESEVEN from './components/FIVESEVEN';
+import G3SG1 from './components/G3SG1';
+import GALIL from './components/GALIL';
+import GLOCK18 from './components/GLOCK18';
+import M4A1 from './components/M4A1';
+import M4A4 from './components/M4A4';
+import M249 from './components/M249';
+import MAC10 from './components/MAC10';
+import MAG7 from './components/MAG7';
+import MP5 from './components/MP5';
+import MP7 from './components/MP7';
+import MP9 from './components/MP9';
+import NEGEV from './components/NEGEV';
+import NOVA from './components/NOVA';
+import P90 from './components/P90';
+import P250 from './components/P250';
+import P2000 from './components/P2000';
+import PPBIZON from './components/PPBIZON';
+import R8 from './components/R8';
+import SAWEDOFF from './components/SAWEDOFF';
+import SCAR20 from './components/SCAR20';
+import SG553 from './components/SG553';
+import SSG08 from './components/SSG08';
+import TEC9 from './components/TEC9';
+import UMP45 from './components/UMP45';
+import USPS from './components/USPS';
+import XM1014 from './components/XM014';
 
 // Function to import all images from the 'src/images' directory with the '.webp' extension
 const importAll = (r) => r.keys().map(r);
