@@ -113,7 +113,7 @@ const App = () => {
         <Route path="/weapon/m4a1-s" exact element={<M4A1/>} />
         <Route path="/weapon/m4a4" exact element={<M4A4/>} />
         <Route path="/weapon/mac-10" exact element={<MAC10/>} />
-        <Route path="/weapon/mag7" exact element={<MAG7/>} />
+        <Route path="/weapon/mag-7" exact element={<MAG7/>} />
         <Route path="/weapon/mp5-sd" exact element={<MP5/>} />
         <Route path="/weapon/mp7" exact element={<MP7/>} />
         <Route path="/weapon/mp9" exact element={<MP9/>} />
