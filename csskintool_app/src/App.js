@@ -44,7 +44,7 @@ import XM1014 from './components/XM1014';
 const importAll = (r) => r.keys().map(r);
 
 // Create a context for images in the 'src/images' directory with the '.webp' extension
-const imageContext = require.context('./images', false, /\.(webp)$/);
+const imageContext = require.context('./images/vanilla', false, /\.(webp)$/);
 
 // Use the importAll function to create an array of imported image objects
 const imageArray = importAll(imageContext);
