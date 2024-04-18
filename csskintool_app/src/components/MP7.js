@@ -3,7 +3,7 @@ import React from 'react';
 // This function imports all images from the specified context
 const importAll = (r) => r.keys().map(r);
 
-const imageContext = require.context('/src/images/aug', false, /\.(png)$/);
+const imageContext = require.context('/src/images/mp7', false, /\.(png)$/);
 const imageArray = importAll(imageContext);
 
 
