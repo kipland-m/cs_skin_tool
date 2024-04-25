@@ -28,7 +28,7 @@ const WeaponDisplay = ({ images, imageNames }) => {
         <Link key={index} to={`/weapon/${encodeURIComponent(imageNames[index])}`}>
           <img
             src={image}
-            alt={`Image ${index + 1}`}
+            alt={`${index + 1}`}
             style={{ width: '320px', height: '240px', margin: '10px', cursor: 'pointer' }}
           />
           <div className='image-text'>{imageNames[index]}</div>
