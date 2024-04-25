@@ -1,5 +1,5 @@
 // components/Home.js
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const importAll = (r) => r.keys().map(r);
