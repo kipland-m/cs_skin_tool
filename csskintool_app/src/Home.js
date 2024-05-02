@@ -1,47 +1,36 @@
-// components/Home.js
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import React from 'react';
+// HomePage.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const importAll = (r) => r.keys().map(r);
+const HomePage = () => {
+  const [weapons, setWeapons] = useState([]);
 
-// Create a context for images in the 'src/images' directory with the '.webp' extension
-const imageContext = require.context('./images/vanilla', false, /\.(webp)$/);
+  useEffect(() => {
+    const fetchWeapons = async () => {
+      try {
+        const response = await axios.get('/api/weapons/');
+        setWeapons(response.data);
+      } catch (error) {
+        console.error('Error fetching weapons:', error);
+      }
+    };
 
-// Use the importAll function to create an array of imported image objects
-const imageArray = importAll(imageContext);
+    fetchWeapons();
+  }, []);
 
-const imageNames = imageArray.map(image => {
-  // Extract the filename from the full path
-  const fileName = image.split('/').pop();
-  const parts = fileName.split('.');
-  const weaponName = parts[0];
-  return weaponName;
-});
-
-
-/* This Function Handles the logic for the landing page, displaying all the weapons
-  and containing the logic to link to each weapon's skin repository*/
-const WeaponDisplay = ({ images, imageNames }) => {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {images.map((image, index) => (
-        <Link key={index} to={`/weapon/${encodeURIComponent(imageNames[index])}`}>
-          <img
-            src={image}
-            alt={`Image ${index + 1}`}
-            style={{ width: '320px', height: '240px', margin: '10px', cursor: 'pointer' }}
-          />
-          <div className='image-text'>{imageNames[index]}</div>
-        </Link>
-      ))}
+    <div>
+      <h1>Weapons</h1>
+      <div>
+        {weapons.map(weapon => (
+          <div key={weapon.id}>
+            <h2>{weapon.name}</h2>
+            <img src={`http://localhost:8000${weapon.image}`} alt={weapon.name} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-const Home = () => {
-  return (
-  <WeaponDisplay images={imageArray} imageNames={imageNames}/>
-  );
-};
-
-export default Home;
+export default HomePage;
