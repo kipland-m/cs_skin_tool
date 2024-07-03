@@ -20,7 +20,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Weapons</h1>
+      <h1>Weapons will display below</h1>
       <div>
         {weapons.map(weapon => (
           <div key={weapon.id}>
